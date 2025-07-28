@@ -15,7 +15,7 @@ def check_password(hashed_password, dictionaryWord):
 strFilename = 'passwords.txt'
 fDictionaryFile = open(strFilename, 'r')
 fAcctFile = open("useraccounts.txt", 'r')
-
+# Change txt file to current users
 for userAcct in fAcctFile:
     userAcct = userAcct.strip('\n')
     lstAcctDetails = list(userAcct.split(":"))
