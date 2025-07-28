@@ -1,11 +1,4 @@
 #  This is tool1.sh   
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
 #!/bin/bash
 
 #setup support variables
@@ -19,38 +12,26 @@ read -p "Enter final Octet range (###): " lastOctet
 
 #iterate through range of IP Addresses
 oct4=$firstOctet
-#  random comments...bla bla bla
-#  random comments...bla bla bla
-#  random comments...bla bla bla
+
 while [ $oct4 -le $lastOctet ]
 do
-    # random comments...bla bla bla
-    # random comments...bla bla bla  
-	# random comments...bla bla bla
+ 
     ipAddress=$subnet"."$oct4
     echo -e "Checking ${ipAddress} - Status: \c"               
-    # random comments...bla bla bla
+  
     ping -c 1 -W 1 $ipAddress > /dev/null 2>&1
-    # random comments...bla bla bla
-    # random comments...bla bla bla
+
     if [ $? == 0 ] 
     then
-        # random comments...bla bla bla
+       
         echo -e "$ipAddress - Ports: \c"                        
-        # random comments...bla bla bla
-        # random comments...bla bla bla
-        # random comments...bla bla bla
-        # random comments...bla bla bla
+      
         for portNumber in ${ports[*]}
         do
-            # random comments...bla bla bla
-            # random comments...bla bla bla
-			# random comments...bla bla bla
-			# random comments...bla bla bla
+          
             (echo "" > /dev/tcp/$ipAddress/$portNumber) 2>/dev/null
 
-            # random comments...bla bla bla
-            # random comments...bla bla bla
+         
             if [ $? -eq 0 ]
             then
                 echo -e "$portNumber "                        
@@ -61,9 +42,6 @@ do
     else                                                       
        echo "is not a valid host"                              
     fi
-    # random comments...bla bla bla
-	# random comments...bla bla bla
-	# random comments...bla bla bla
-	# random comments...bla bla bla
+   
     oct4=`expr $oct4 + 1 `
 done
